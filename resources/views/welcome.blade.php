@@ -88,7 +88,7 @@
                                         <header class="item-name"><a href="#">Lowlands Lace Blouse</a></header>
                                     </td>
                                     <td class="item-code">ksdjfhjks jksdnfksdjnf jksndjksnadjk jkasndjksand jksadnjkasn jksndjkansakknjksaas sdbk jksad jksbd  sjakdjkasdbasjkdksjsas d s sk dasd </td>
-                                    <td class="item-total-col"><button class="btn btn-warning">AMAZON</button> <hr><button class="btn btn-danger">AMAZON</button> </td>
+                                    <td class="item-total-col"><button class="btn btn-warning">AMAZON</button> <hr><button class="btn btn-danger">EBAY</button> </td>
                                 </tr>
                                 <tr>
                                     <td class="item-name-col">
@@ -97,7 +97,7 @@
                                         <header class="item-name"><a href="#">Lowlands Lace Blouse</a></header>
                                     </td>
                                     <td class="item-code">ksdjfhjks jksdnfksdjnf jksndjksnadjk jkasndjksand jksadnjkasn jksndjkansakknjksaas sdbk jksad jksbd  sjakdjkasdbasjkdksjsas d s sk dasd </td>
-                                    <td class="item-total-col"><button class="btn btn-warning">AMAZON</button> <hr><button class="btn btn-danger">AMAZON</button> </td>
+                                    <td class="item-total-col"><button class="btn btn-warning">AMAZON</button> <hr><button class="btn btn-danger">EBAY</button> </td>
                                 </tr>
                                 <tr>
                                     <td class="item-name-col">
@@ -106,7 +106,7 @@
                                         <header class="item-name"><a href="#">Lowlands Lace Blouse</a></header>
                                     </td>
                                     <td class="item-code">ksdjfhjks jksdnfksdjnf jksndjksnadjk jkasndjksand jksadnjkasn jksndjkansakknjksaas sdbk jksad jksbd  sjakdjkasdbasjkdksjsas d s sk dasd </td>
-                                    <td class="item-total-col"><button class="btn btn-warning">AMAZON</button> <hr><button class="btn btn-danger">AMAZON</button> </td>
+                                    <td class="item-total-col"><button class="btn btn-warning">AMAZON</button> <hr><button class="btn btn-danger">EBAY</button> </td>
                                 </tr>
                                 <tr>
                                     <td class="item-name-col">
@@ -115,7 +115,7 @@
                                         <header class="item-name"><a href="#">Lowlands Lace Blouse</a></header>
                                     </td>
                                     <td class="item-code">ksdjfhjks jksdnfksdjnf jksndjksnadjk jkasndjksand jksadnjkasn jksndjkansakknjksaas sdbk jksad jksbd  sjakdjkasdbasjkdksjsas d s sk dasd </td>
-                                    <td class="item-total-col"><button class="btn btn-warning">AMAZON</button> <hr><button class="btn btn-danger">AMAZON</button> </td>
+                                    <td class="item-total-col"><button class="btn btn-warning">AMAZON</button> <hr><button class="btn btn-danger">EBAY</button> </td>
                                 </tr>
 
                                 </tbody>
