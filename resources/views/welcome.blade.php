@@ -47,7 +47,7 @@
                                     </div>
                                 </div>
                                 <ul class="menu clearfix">
-                                    <li><a href="contact.html">Home</a></li>
+                                    <li><a href="{{url('/')}}">Home</a></li>
                                     <li><a href="contact.html">About Us</a></li>
                                     <li><a href="contact.html">Contact Us</a></li>
                                 </ul>
