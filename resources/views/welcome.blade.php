@@ -47,7 +47,7 @@
                                     </div>
                                 </div>
                                 <ul class="menu clearfix">
-                                    <li><a href="{{url('/')}}">Home</a></li>
+                                    <li><a href="{{url('/')}}" style="color:green">Home</a></li>
                                     <li><a href="contact.html">About Us</a></li>
                                     <li><a href="contact.html">Contact Us</a></li>
                                 </ul>
@@ -81,43 +81,42 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
+                                    <tr>
                                     <td class="item-name-col">
-                                        <figure><a href="#"><img src="images/products/compare1.jpg"
+                                        <figure><a href="#"><img src="{{asset('uploads/product/'.$content->image_one)}}"
                                                                  alt="Lowlands Lace Blouse"></a></figure>
-                                        <header class="item-name"><a href="#">Lowlands Lace Blouse</a></header>
+                                        <header class="item-name"><a href="#">{{$content->product_name}}</a></header>
                                     </td>
-                                    <td class="item-code">ksdjfhjks jksdnfksdjnf jksndjksnadjk jkasndjksand jksadnjkasn jksndjkansakknjksaas sdbk jksad jksbd  sjakdjkasdbasjkdksjsas d s sk dasd </td>
-                                    <td class="item-total-col"><button class="btn btn-warning">AMAZON PRICE</button> <hr><button class="btn btn-danger">EBAY PRICE</button> </td>
+                                    <td class="item-code">{{$content->product_desc}}</td>
+                                        <td class="item-total-col"><a href="{{$content->amazon_link}}"><button class="btn btn-warning">AMAZON PRICE</button></a> <hr><a href="{{$content->ebay_link}}"><button class="btn btn-danger">EBAY PRICE</button></a> </td>
                                 </tr>
-                                <tr>
-                                    <td class="item-name-col">
-                                        <figure><a href="#"><img src="images/products/compare1.jpg"
-                                                                 alt="Lowlands Lace Blouse"></a></figure>
-                                        <header class="item-name"><a href="#">Lowlands Lace Blouse</a></header>
-                                    </td>
-                                    <td class="item-code">ksdjfhjks jksdnfksdjnf jksndjksnadjk jkasndjksand jksadnjkasn jksndjkansakknjksaas sdbk jksad jksbd  sjakdjkasdbasjkdksjsas d s sk dasd </td>
-                                    <td class="item-total-col"><button class="btn btn-warning">AMAZON PRICE</button> <hr><button class="btn btn-danger">EBAY PRICE</button> </td>
-                                </tr>
-                                <tr>
-                                    <td class="item-name-col">
-                                        <figure><a href="#"><img src="images/products/compare1.jpg"
-                                                                 alt="Lowlands Lace Blouse"></a></figure>
-                                        <header class="item-name"><a href="#">Lowlands Lace Blouse</a></header>
-                                    </td>
-                                    <td class="item-code">ksdjfhjks jksdnfksdjnf jksndjksnadjk jkasndjksand jksadnjkasn jksndjkansakknjksaas sdbk jksad jksbd  sjakdjkasdbasjkdksjsas d s sk dasd </td>
-                                    <td class="item-total-col"><button class="btn btn-warning">AMAZON PRICE</button> <hr><button class="btn btn-danger">EBAY PRICE</button> </td>
-                                </tr>
-                                <tr>
-                                    <td class="item-name-col">
-                                        <figure><a href="#"><img src="images/products/compare1.jpg"
-                                                                 alt="Lowlands Lace Blouse"></a></figure>
-                                        <header class="item-name"><a href="#">Lowlands Lace Blouse</a></header>
-                                    </td>
-                                    <td class="item-code">ksdjfhjks jksdnfksdjnf jksndjksnadjk jkasndjksand jksadnjkasn jksndjkansakknjksaas sdbk jksad jksbd  sjakdjkasdbasjkdksjsas d s sk dasd </td>
-                                    <td class="item-total-col"><button class="btn btn-warning">AMAZON PRICE</button> <hr><button class="btn btn-danger">EBAY PRICE</button> </td>
-                                </tr>
-
+                                    <tr>
+                                        <td class="item-name-col">
+                                            <figure><a href="#"><img src="{{asset('uploads/product/'.$two->image_one)}}"
+                                                                     alt="Lowlands Lace Blouse"></a></figure>
+                                            <header class="item-name"><a href="#">{{$two->product_name}}</a></header>
+                                        </td>
+                                        <td class="item-code">{{$two->product_desc}}</td>
+                                        <td class="item-total-col"><a href="{{$two->amazon_link}}"><button class="btn btn-warning">AMAZON PRICE</button></a> <hr><a href="{{$content->ebay_link}}"><button class="btn btn-danger">EBAY PRICE</button></a> </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="item-name-col">
+                                            <figure><a href="#"><img src="{{asset('uploads/product/'.$three->image_one)}}"
+                                                                     alt="Lowlands Lace Blouse"></a></figure>
+                                            <header class="item-name"><a href="#">{{$three->product_name}}</a></header>
+                                        </td>
+                                        <td class="item-code">{{$three->product_desc}}</td>
+                                        <td class="item-total-col"><a href="{{$three->amazon_link}}"><button class="btn btn-warning">AMAZON PRICE</button></a> <hr><a href="{{$content->ebay_link}}"><button class="btn btn-danger">EBAY PRICE</button></a> </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="item-name-col">
+                                            <figure><a href="#"><img src="{{asset('uploads/product/'.$four->image_one)}}"
+                                                                     alt="Lowlands Lace Blouse"></a></figure>
+                                            <header class="item-name"><a href="#">{{$four->product_name}}</a></header>
+                                        </td>
+                                        <td class="item-code">{{$four->product_desc}}</td>
+                                        <td class="item-total-col"><a href="{{$four->amazon_link}}"><button class="btn btn-warning">AMAZON PRICE</button></a> <hr><a href="{{$content->ebay_link}}"><button class="btn btn-danger">EBAY PRICE</button></a> </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

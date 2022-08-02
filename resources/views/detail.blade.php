@@ -13,23 +13,23 @@
     <link
         href="http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic%7CPT+Gudea:400,700,400italic%7CPT+Oswald:400,700,300"
         rel="stylesheet" id="googlefont">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/prettyPhoto.css">
-    <link rel="stylesheet" href="css/colpick.css">
-    <link rel="stylesheet" href="css/owl.carousel.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/prettyPhoto.css')}}">
+    <link rel="stylesheet" href="{{asset('css/colpick.css')}}">
+    <link rel="stylesheet" href="{{asset('css/owl.carousel.css')}}">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
     <link rel="icon" type="image/png" href="http://www.portotheme.com/html/venedor/green/images/icons/icon.png">
     <link rel="apple-touch-icon" sizes="57x57"
           href="http://www.portotheme.com/html/venedor/green/images/icons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="72x72"
           href="http://www.portotheme.com/html/venedor/green/images/icons/apple-icon-72x72.png">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>');</script>
+    <script>window.jQuery || document.write('<script src="{{asset('js/jquery-1.11.1.min.js')}}"><\/script>');</script>
     <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script><![endif]-->
+    <script src="{{asset('js/html5shiv.js')}}"></script>
+    <script src="{{asset('js/respond.min.js')}}"></script><![endif]-->
     <style id="custom-style"></style>
 </head>
 <body>
@@ -302,42 +302,35 @@
             <div class="container">
                 <ul class="breadcrumb">
                     <li><a href="{{url('/')}}">Home</a></li>
-                    <li class="active">Product Name</li>
+                    <li class="active">{{$detail->product_name}}</li>
                 </ul>
             </div>
         </div>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <header class="content-title title-bg"><h1 class="title">Product Name</h1></header>
+                    <header class="content-title title-bg"><h1 class="title">{{$detail->product_name}}</h1></header>
                     <div class="row single-portfolio">
                         <div class="col-md-8 col-sm-7 col-xs-12">
                             <figure>
                                 <div class="flexslider single-portfolio-slider">
                                     <ul class="slides">
-                                        <li><img src="images/portfolio/classic/portfolio6.jpg" class="img-responsive"
+                                        <li><img src="{{asset('uploads/product/'.$detail->image_one)}}" class="img-responsive"
                                                  alt="Portfolio item 6"></li>
-                                        <li><img src="images/portfolio/classic/portfolio4.jpg" class="img-responsive"
+                                        @if($detail->image_two!=null)
+                                        <li><img src="{{asset('uploads/product/'.$detail->image_two)}}" class="img-responsive"
                                                  alt="Portfolio item 4"></li>
-                                        <li><img src="images/portfolio/classic/portfolio3.jpg" class="img-responsive"
-                                                 alt="Portfolio item 3"></li>
+                                        @endif
                                     </ul>
                                 </div>
                             </figure>
                         </div>
-                        <header><h1 class="title">Product Desc</h1></header>
-                        <div class="col-md-4 col-sm-5 col-xs-12 portfolio-meta-container"><p>In euismod massa metus,
-                                quis porttitor nisi commodo nec. Praesent vitae auctor sapien. Suspendisse fermentum
-                                metus fermentum magna tincidunt convallis. Curabitur eget convallis metus. Duis vitae
-                                tortor ut metus rhoncus dignissim non vel est. Donec bibendum justo vel neque
-                                ullamcorper ultrices.</p>
-                            <p>Aliquam a turpis aliquam, lacinia lorem in, lobortis augue. Sed semper orci vitae
-                                vehicula tincidunt. Ut tempor laoreet ligula consectetur egestas. Ut placerat, lacus eu
-                                mollis rhoncus, quam enim fermentum leo, eu consectetur quam lorem vehicula elit.</p>
-                                <button class="btn btn-warning">AMAZON PRICE</button>
+                        <header><h1 class="title">Description</h1></header>
+                        <div class="col-md-4 col-sm-5 col-xs-12 portfolio-meta-container"><p>{{$detail->product_desc}}</p>
+                            <a href="{{$detail->amazon_link}}"><button class="btn btn-warning">AMAZON PRICE</button></a>
                             <br>
                             <br>
-                                <button class="btn btn-danger">EBAY PRICE</button>
+                            <a href="{{$detail->ebay_link}}"><button class="btn btn-danger">EBAY PRICE</button></a>
                         </div>
                     </div>
                     <div class="xlg-margin"></div>
@@ -369,18 +362,18 @@
     </footer>
 </div>
 <a href="#" id="scroll-top" title="Scroll to Top"><i class="fa fa-angle-up"></i></a>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/smoothscroll.js"></script>
-<script src="js/retina.min.js"></script>
-<script src="js/jquery.placeholder.js"></script>
-<script src="js/jquery.hoverIntent.min.js"></script>
-<script src="js/twitter/jquery.tweet.min.js"></script>
-<script src="js/jquery.flexslider-min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jflickrfeed.min.js"></script>
-<script src="js/jquery.prettyPhoto.js"></script>
-<script src="js/colpick.js"></script>
-<script src="js/main.js"></script>
+<script src="{{asset('js/bootstrap.min.js')}}"></script>
+<script src="{{asset('js/smoothscroll.js')}}"></script>
+<script src="{{asset('js/retina.min.js')}}"></script>
+<script src="{{asset('js/jquery.placeholder.js')}}"></script>
+<script src="{{asset('js/jquery.hoverIntent.min.js')}}"></script>
+<script src="{{asset('js/twitter/jquery.tweet.min.js')}}"></script>
+<script src="{{asset('js/jquery.flexslider-min.js')}}"></script>
+<script src="{{asset('js/owl.carousel.min.js')}}"></script>
+<script src="{{asset('js/jflickrfeed.min.js')}}"></script>
+<script src="{{asset('js/jquery.prettyPhoto.js')}}"></script>
+<script src="{{asset('js/colpick.js')}}"></script>
+<script src="{{asset('js/main.js')}}"></script>
 </body>
 <!-- Mirrored from portotheme.com/html/venedor/green/single-portfolio-gallery.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 26 Jul 2022 06:21:13 GMT -->
 </html>
