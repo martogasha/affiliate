@@ -17,9 +17,9 @@ class CreateContentsTable extends Migration
             $table->id();
             $table->string('placement')->nullable();
             $table->string('product_name');
-            $table->string('product_desc');
-            $table->string('amazon_link');
-            $table->string('ebay_link');
+            $table->longText('product_desc');
+            $table->longText('amazon_link');
+            $table->longText('ebay_link');
             $table->mediumText('image_one')->nullable();
             $table->mediumText('image_two')->nullable();
             $table->timestamps();
