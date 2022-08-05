@@ -281,6 +281,7 @@
                                     </div>
                                 </div>
                                 <ul class="menu clearfix">
+                                    <li><a href="{{url('/')}}">Home</a></li>
                                     <li><a class="active" href="{{url('admin')}}">Admin</a></li>
                                     <li><a href="{{url('add')}}" style="color:green">Add Content</a></li>
                                 </ul>
