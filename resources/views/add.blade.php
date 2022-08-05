@@ -316,7 +316,7 @@
                         @csrf
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                <fieldset><h2 class="sub-title">CONTENT DETAILS</h2>
+                                <fieldset><h2 class="sub-title">PRODUCT DETAILS</h2>
                                     <div class="input-group"><span class="input-group-addon"><span class="input-text">Placement</span></span>
                                         <div class="large-selectbox clearfix"><select id="country" name="placement" class="selectbox">
                                                 <option value="">Select Placement</option>
