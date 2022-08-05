@@ -23,7 +23,7 @@ class ContentController extends Controller
         return view('add');
     }
     public function admin(){
-        $contents = Content::all();
+        $contents = Content::latest()->get();
         return view('admin',[
             'contents'=>$contents
         ]);
