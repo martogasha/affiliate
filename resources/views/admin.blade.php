@@ -282,7 +282,7 @@
                                 <ul class="menu clearfix">
                                     <li><a href="{{url('/')}}">Home</a></li>
                                     <li><a href="{{url('admin')}}" style="color:green">Admin</a></li>
-                                    <li><a href="{{url('add')}}">Add Content</a></li>
+                                    <li><a href="{{url('add')}}">Add Product</a></li>
                                 </ul>
                             </nav>
                             <div id="quick-access">
