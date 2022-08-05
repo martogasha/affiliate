@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 class ContentController extends Controller
 {
     public function index(){
-        $content = Content::where('placement','one')->first();
-        $two = Content::where('placement','two')->first();
-        $three = Content::where('placement','three')->first();
-        $four = Content::where('placement','four')->first();
+        $content = Content::where('placement','one')->latest('id')->first();
+        $two = Content::where('placement','two')->latest('id')->first();
+        $three = Content::where('placement','three')->latest('id')->first();
+        $four = Content::where('placement','four')->latest('id')->first();
         return view('welcome',[
             'content'=>$content,
             'two'=>$two,
