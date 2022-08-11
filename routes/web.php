@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\DetailController;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ContentController::class, 'index']);
 Route::get('detail', [DetailController::class, 'detail']);
+Route::get('blog', [BlogController::class, 'blog']);
+Route::get('blogDetail', [BlogController::class, 'blogDetail']);
 Route::get('add', [ContentController::class, 'add']);
 Route::post('store', [ContentController::class, 'store']);
 Route::post('editC', [ContentController::class, 'editC']);

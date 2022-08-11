@@ -282,7 +282,7 @@
                                 <ul class="menu clearfix">
                                     <li><a href="{{url('/')}}">Home</a></li>
                                     <li><a href="#">About Us</a></li>
-                                    <li><a href="{{url('blog')}}">Blog</a></li>
+                                    <li><a href="{{url('blog')}}" style="color:green">Blog</a></li>
                                     <li><a href="contact.html">Contact Us</a></li>
                                 </ul>
                             </nav>                            <div id="quick-access">
@@ -302,39 +302,112 @@
         <div id="breadcrumb-container">
             <div class="container">
                 <ul class="breadcrumb">
-                    <li><a href="{{url('/')}}">Home</a></li>
-                    <li class="active">{{$detail->product_name}}</li>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active">Blog</li>
                 </ul>
             </div>
         </div>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <header class="content-title title-bg"><h1 class="title">{{$detail->product_name}}</h1></header>
-                    <div class="row single-portfolio">
-                        <div class="col-md-8 col-sm-7 col-xs-12">
-                            <figure>
-                                <div class="flexslider single-portfolio-slider">
-                                    <ul class="slides">
-                                        <li><img src="{{asset('uploads/product/'.$detail->image_one)}}" class="img-responsive"
-                                                 alt="Portfolio item 6"></li>
-                                        @if($detail->image_two!=null)
-                                        <li><img src="{{asset('uploads/product/'.$detail->image_two)}}" class="img-responsive"
-                                                 alt="Portfolio item 4"></li>
-                                        @endif
+                        <p class="title-desc">Do not miss our news. Follow the trends.</p></header>
+                    <div class="xs-margin"></div>
+                    <div class="row">
+                        <div class="col-md-9 col-sm-8 col-xs-12 articles-container">
+                            <article class="article">
+                                <div class="article-meta-date"><span>15</span> Aug</div>
+                                <figure class="article-media-container"><img src="images/blog/post2-large.jpg"
+                                                                             alt="blog post"></figure>
+                                <h2><a href="single.html">Blog Title.</a></h2>
+                                <div class="article-content-container"><p>Quisque elementum nibh at dolor pellentesque,
+                                        a eleifend libero pharetra. Mauris neque felis, volutpat nec ullamcorper eget,
+                                        sagittis vel enim. Nam sit amet ante egestas, gravida tellus vitae, semper eros.
+                                        Nullam mattis mi at metus egestas, in porttitor lectus sodales <a href="#">Read
+                                            More...</a></p></div>
+                            </article>
+                            <article class="article">
+                                <div class="article-meta-date"><span>15</span> Aug</div>
+                                <figure class="article-media-container"><img src="images/blog/post2-large.jpg"
+                                                                             alt="blog post"></figure>
+                                <h2><a href="single.html">Blog Title.</a></h2>
+                                <div class="article-content-container"><p>Quisque elementum nibh at dolor pellentesque,
+                                        a eleifend libero pharetra. Mauris neque felis, volutpat nec ullamcorper eget,
+                                        sagittis vel enim. Nam sit amet ante egestas, gravida tellus vitae, semper eros.
+                                        Nullam mattis mi at metus egestas, in porttitor lectus sodales <a href="#">Read
+                                            More...</a></p></div>
+                            </article>
+                            <article class="article">
+                                <div class="article-meta-date"><span>15</span> Aug</div>
+                                <figure class="article-media-container"><img src="images/blog/post2-large.jpg"
+                                                                             alt="blog post"></figure>
+                                <h2><a href="single.html">Blog Title.</a></h2>
+                                <div class="article-content-container"><p>Quisque elementum nibh at dolor pellentesque,
+                                        a eleifend libero pharetra. Mauris neque felis, volutpat nec ullamcorper eget,
+                                        sagittis vel enim. Nam sit amet ante egestas, gravida tellus vitae, semper eros.
+                                        Nullam mattis mi at metus egestas, in porttitor lectus sodales <a href="#">Read
+                                            More...</a></p></div>
+                            </article>
+
+
+                            <div class="pagination-container clearfix">
+                                <div class="pull-left page-count">Page 1 of 5</div>
+                                <div class="pull-right">
+                                    <ul class="pagination">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
                                     </ul>
                                 </div>
-                            </figure>
+                            </div>
                         </div>
-                        <header><h1 class="title">Description</h1></header>
-                        <div class="col-md-4 col-sm-5 col-xs-12 portfolio-meta-container"><p>{{$detail->product_desc}}</p>
-                            <a href="{{$detail->amazon_link}}"><button class="btn btn-warning">AMAZON PRICE</button></a>
-                            <br>
-                            <br>
-                            <a href="{{$detail->ebay_link}}"><button class="btn btn-danger">EBAY PRICE</button></a>
-                        </div>
+                        <aside class="col-md-3 col-sm-4 col-xs-12 sidebar">
+                            <div class="widget recent-posts"><h3>Recent Posts</h3>
+                                <div class="recent-posts-slider flexslider sidebarslider">
+                                    <ul class="recent-posts-list clearfix">
+                                        <li><a href="single.html">
+                                                <figure class="recent-posts-media-container"><img
+                                                        src="images/blog/post1-small.jpg" class="img-responsive"
+                                                        alt="lats post"></figure>
+                                            </a><h4><a href="single.html">35% Discount on second purchase!</a></h4>
+                                            <p>Sed blandit nulla nec nunc ullamcorper tristique. Mauris adipiscing
+                                                cursus ante ultricies dictum sed lobortis.</p>
+                                            <div class="recent-posts-meta-container clearfix">
+                                                <div class="pull-left"><a href="#">Read More...</a></div>
+                                                <div class="pull-right">12.05.2013</div>
+                                            </div>
+                                        </li>
+                                        <li><a href="single.html">
+                                                <figure class="recent-posts-media-container"><img
+                                                        src="images/blog/post2-small.jpg" class="img-responsive"
+                                                        alt="lats post"></figure>
+                                            </a><h4><a href="single.html">Free shipping for regular customers.</a></h4>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque fuga
+                                                officia in molestiae easint..</p>
+                                            <div class="recent-posts-meta-container clearfix">
+                                                <div class="pull-left"><a href="#">Read More...</a></div>
+                                                <div class="pull-right">10.05.2013</div>
+                                            </div>
+                                        </li>
+                                        <li><a href="single.html">
+                                                <figure class="recent-posts-media-container"><img
+                                                        src="images/blog/post3-small.jpg" class="img-responsive"
+                                                        alt="lats post"></figure>
+                                            </a><h4><a href="#">New jeans on sales!</a></h4>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque fuga
+                                                officia in molestiae easint..</p>
+                                            <div class="recent-posts-meta-container clearfix">
+                                                <div class="pull-left"><a href="#">Read More...</a></div>
+                                                <div class="pull-right">8.05.2013</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </aside>
                     </div>
-                    <div class="xlg-margin"></div>
                 </div>
             </div>
         </div>
@@ -363,18 +436,20 @@
     </footer>
 </div>
 <a href="#" id="scroll-top" title="Scroll to Top"><i class="fa fa-angle-up"></i></a>
-<script src="{{asset('js/bootstrap.min.js')}}"></script>
-<script src="{{asset('js/smoothscroll.js')}}"></script>
-<script src="{{asset('js/retina.min.js')}}"></script>
-<script src="{{asset('js/jquery.placeholder.js')}}"></script>
-<script src="{{asset('js/jquery.hoverIntent.min.js')}}"></script>
-<script src="{{asset('js/twitter/jquery.tweet.min.js')}}"></script>
-<script src="{{asset('js/jquery.flexslider-min.js')}}"></script>
-<script src="{{asset('js/owl.carousel.min.js')}}"></script>
-<script src="{{asset('js/jflickrfeed.min.js')}}"></script>
-<script src="{{asset('js/jquery.prettyPhoto.js')}}"></script>
-<script src="{{asset('js/colpick.js')}}"></script>
-<script src="{{asset('js/main.js')}}"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/smoothscroll.js"></script>
+<script src="js/jquery.debouncedresize.js"></script>
+<script src="js/retina.min.js"></script>
+<script src="js/jquery.fitvids.js"></script>
+<script src="js/jquery.placeholder.js"></script>
+<script src="js/jquery.hoverIntent.min.js"></script>
+<script src="js/twitter/jquery.tweet.min.js"></script>
+<script src="js/jquery.flexslider-min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jflickrfeed.min.js"></script>
+<script src="js/jquery.prettyPhoto.js"></script>
+<script src="js/colpick.js"></script>
+<script src="js/main.js"></script>
 </body>
-<!-- Mirrored from portotheme.com/html/venedor/green/single-portfolio-gallery.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 26 Jul 2022 06:21:13 GMT -->
+<!-- Mirrored from portotheme.com/html/venedor/green/blog.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 26 Jul 2022 06:18:46 GMT -->
 </html>
