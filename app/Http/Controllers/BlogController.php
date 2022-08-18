@@ -29,7 +29,7 @@ class BlogController extends Controller
         return view('admin.addBlog');
     }
     public function adminBlog(){
-        $contents = Blog::latest()->get();
+        $contents = Blog::latest()->paginate(6);
         return view('admin.blog',[
             'contents'=>$contents
         ]);

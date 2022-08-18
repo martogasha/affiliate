@@ -355,27 +355,7 @@
                                 </body>
                             </div>
                             <div class="pagination-container clearfix">
-                                <div class="pull-right">
-                                    <ul class="pagination">
-                                        <li class="active"><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
-                                        <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="pull-right view-count-box hidden-xs"><span class="separator">view:</span>
-                                    <div class="btn-group select-dropdown">
-                                        <button type="button" class="btn select-btn">10</button>
-                                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i
-                                                class="fa fa-angle-down"></i></button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">15</a></li>
-                                            <li><a href="#">30</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
+                              {{$contents->links()}}
                             </div>
                         </div>
                     </div>

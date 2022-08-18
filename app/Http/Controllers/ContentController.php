@@ -31,7 +31,7 @@ class ContentController extends Controller
         ]);
     }
     public function Products(){
-        $contents = Content::latest()->get();
+        $contents = Content::latest()->paginate(6);
         return view('admin.product',[
             'contents'=>$contents
         ]);
