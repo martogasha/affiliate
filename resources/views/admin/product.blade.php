@@ -2,10 +2,10 @@
 <html class="ie8"><![endif]--><!--[if IE 9]>
 <html class="ie9"><![endif]--><!--[if !IE]><!-->
 <html><!--<![endif]-->
-<!-- Mirrored from portotheme.com/html/venedor/green/single-portfolio-gallery.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 26 Jul 2022 06:21:13 GMT -->
+<!-- Mirrored from portotheme.com/html/venedor/green/category.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 26 Jul 2022 06:17:19 GMT -->
 <head>
     <meta charset="utf-8">
-    <title>Venedor - Responsive eCommerce Template</title>
+    <title>Products - Affiliate Website</title>
     <meta name="description" content="Responsive modern ecommerce Html5 Template">
     <!--[if IE]>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
@@ -13,23 +13,23 @@
     <link
         href="http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic%7CPT+Gudea:400,700,400italic%7CPT+Oswald:400,700,300"
         rel="stylesheet" id="googlefont">
-    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/prettyPhoto.css')}}">
-    <link rel="stylesheet" href="{{asset('css/colpick.css')}}">
-    <link rel="stylesheet" href="{{asset('css/owl.carousel.css')}}">
-    <link rel="stylesheet" href="{{asset('css/style.css')}}">
-    <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/prettyPhoto.css">
+    <link rel="stylesheet" href="css/colpick.css">
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
     <link rel="icon" type="image/png" href="http://www.portotheme.com/html/venedor/green/images/icons/icon.png">
     <link rel="apple-touch-icon" sizes="57x57"
           href="http://www.portotheme.com/html/venedor/green/images/icons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="72x72"
           href="http://www.portotheme.com/html/venedor/green/images/icons/apple-icon-72x72.png">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="{{asset('js/jquery-1.11.1.min.js')}}"><\/script>');</script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>');</script>
     <!--[if lt IE 9]>
-    <script src="{{asset('js/html5shiv.js')}}"></script>
-    <script src="{{asset('js/respond.min.js')}}"></script><![endif]-->
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script><![endif]-->
     <style id="custom-style"></style>
 </head>
 <body>
@@ -281,11 +281,15 @@
                                 </div>
                                 <ul class="menu clearfix">
                                     <li><a href="{{url('/')}}">Home</a></li>
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="{{url('blog')}}" style="color:green">Blog</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
+                                    <li><a href="{{url('admin')}}">Admin</a></li>
+                                    <li><a href="{{url('products')}}" style="color:green">Products</a></li>
+                                    <li><a href="{{url('add')}}">Add Product</a></li>
+                                    <li><a href="{{url('admin/blog')}}">Blog</a></li>
+                                    <li><a href="{{url('signUp')}}">Sign Ups</a></li>
+
                                 </ul>
-                            </nav>                            <div id="quick-access">
+                            </nav>
+                            <div id="quick-access">
                                 <form class="form-inline quick-search-form" role="form" action="#">
                                     <div class="form-group"><input type="text" class="form-control"
                                                                    placeholder="Search here"></div>
@@ -299,56 +303,81 @@
         </div>
     </header>
     <section id="content">
-        <div id="breadcrumb-container">
-            <div class="container">
-                <ul class="breadcrumb">
-                    <li><a href="index.html">Home</a></li>
-                    <li class="active">Blog</li>
-                </ul>
-            </div>
-        </div>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="xs-margin"></div>
                     <div class="row">
-                        <div class="col-md-9 col-sm-8 col-xs-12 articles-container">
-                            @foreach($blogs as $blog)
-                            <article class="article">
-                                <div class="article-meta-date">{{$blog->created_at->diffForHumans()}}</div>
-                                <figure class="article-media-container">
-                                    <a href="{{url('blogDetail',['id'=>$blog->id,'name'=>str_slug($blog->title)])}}">
-                                    <img src="{{asset('uploads/product/'.$blog->image)}}"
-                                         alt="blog post"></a>
-                                </figure>
-                                <h2><a href="{{url('blogDetail',['id'=>$blog->id,'name'=>str_slug($blog->title)])}}">{{\Illuminate\Support\Str::of($blog->title)->words(10)}}</a></h2>
-                                <div class="article-content-container"><p>{{\Illuminate\Support\Str::of($blog->detail)->words(20)}} <a href="{{url('blogDetail',['id'=>$blog->id,'name'=>str_slug($blog->title)])}}">Read
-                                            More...</a></p></div>
-                            </article>
-                            @endforeach
-                                {{$blogs->links()}}
-                        </div>
-                        <aside class="col-md-3 col-sm-4 col-xs-12 sidebar">
-                            <div class="widget recent-posts"><h3>Recent Posts</h3>
-                                <div class="recent-posts-slider flexslider sidebarslider">
-                                    <ul class="recent-posts-list clearfix">
-                                        @foreach($recents as $recent)
-                                            <li><a href="{{url('blogDetail',['id'=>$recent->id,'name'=>str_slug($recent->title)])}}">
-                                                    <figure class="recent-posts-media-container"><img
-                                                            src="{{asset('uploads/product/'.$recent->image)}}" class="img-responsive"
-                                                            alt="lats post"></figure>
-                                                </a><h4><a href="{{url('blogDetail',['id'=>$recent->id,'name'=>str_slug($recent->title)])}}">{{\Illuminate\Support\Str::of($recent->title)->words(7)}}</a></h4>
-                                                <p>{{\Illuminate\Support\Str::of($recent->detail)->words(7)}}</p>
-                                                <div class="recent-posts-meta-container clearfix">
-                                                    <div class="pull-left"><a href="{{url('blogDetail',['id'=>$recent->id,'name'=>str_slug($recent->title)])}}">Read More...</a></div>
-                                                    <div class="pull-right">{{$recent->created_at->diffForHumans()}}</div>
+                        <div class="col-md-9 col-sm-8 col-xs-12 main-content">
+                            <div class="category-toolbar clearfix">
+                            </div>
+                            <div class="md-margin"></div>
+                            <div class="category-item-container">
+                                <head>
+                                    <title>Bootsrap Image Gallery</title>
+                                    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+                                    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+                                    <link rel="stylesheet" type="text/css" href="style.css">
+                                    <link rel="shortcut icon" href="favicon.ico"/>
+                                </head>
+                                <body>
+                                @include('flash-message')
+                                <!-- navbar start -->
+                                <!-- navbar end -->
+
+                                <!-- content start -->
+                                <div class="container">
+                                    <div class="row flex">
+                                        @foreach($contents as $content)
+                                            <div class="col-lg-4 col-sm-6">
+                                                <div class="thumbnail">
+                                                    <img src="{{asset('uploads/product/'.$content->image_one)}}">
+                                                    <h4>{{$content->product_name}}</h4>
                                                 </div>
-                                            </li>
+                                                <a href="{{url('detail',['id'=>$content->id,'name'=>$content->product_name,'category'=>str_slug($content->product_desc)])}}"><button class="btn btn-primary">View</button></a>
+                                                <a href="{{url('edit',$content->id)}}"><button class="btn btn-info">Edit</button></a>
+                                                <button class="btn btn-danger">Delete</button>
+                                            </div>
                                         @endforeach
+
+                                    </div>
+
+                                </div>
+
+
+
+                                <script
+                                    src="https://code.jquery.com/jquery-3.2.1.js"
+                                    integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+                                    crossorigin="anonymous"></script>
+
+                                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+                                </body>
+                            </div>
+                            <div class="pagination-container clearfix">
+                                <div class="pull-right">
+                                    <ul class="pagination">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
                                     </ul>
                                 </div>
+                                <div class="pull-right view-count-box hidden-xs"><span class="separator">view:</span>
+                                    <div class="btn-group select-dropdown">
+                                        <button type="button" class="btn select-btn">10</button>
+                                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i
+                                                class="fa fa-angle-down"></i></button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">15</a></li>
+                                            <li><a href="#">30</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                        </aside>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -382,7 +411,6 @@
 <script src="js/smoothscroll.js"></script>
 <script src="js/jquery.debouncedresize.js"></script>
 <script src="js/retina.min.js"></script>
-<script src="js/jquery.fitvids.js"></script>
 <script src="js/jquery.placeholder.js"></script>
 <script src="js/jquery.hoverIntent.min.js"></script>
 <script src="js/twitter/jquery.tweet.min.js"></script>
@@ -390,8 +418,11 @@
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/jflickrfeed.min.js"></script>
 <script src="js/jquery.prettyPhoto.js"></script>
+<script src="js/jquery.nouislider.min.js"></script>
 <script src="js/colpick.js"></script>
+<script src="js/jquery.jscrollpane.min.js"></script>
+<script src="js/jquery.mousewheel.js"></script>
 <script src="js/main.js"></script>
 </body>
-<!-- Mirrored from portotheme.com/html/venedor/green/blog.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 26 Jul 2022 06:18:46 GMT -->
+<!-- Mirrored from portotheme.com/html/venedor/green/category.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 26 Jul 2022 06:17:41 GMT -->
 </html>

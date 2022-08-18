@@ -13,6 +13,7 @@ class Content extends Model
         'product_desc',
         'amazon_link',
         'ebay_link',
+        'product_link',
         'image_one',
         'placement',
         'image_two',

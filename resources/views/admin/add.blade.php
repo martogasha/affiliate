@@ -2,7 +2,7 @@
 <html class="ie8"><![endif]--><!--[if IE 9]>
 <html class="ie9"><![endif]--><!--[if !IE]><!-->
 <html><!--<![endif]-->
-<!-- Mirrored from portotheme.com/html/venedor/green/category.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 26 Jul 2022 06:17:19 GMT -->
+<!-- Mirrored from portotheme.com/html/venedor/green/register-account.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 26 Jul 2022 06:19:07 GMT -->
 <head>
     <meta charset="utf-8">
     <title>Venedor - Responsive eCommerce Template</title>
@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="css/prettyPhoto.css">
     <link rel="stylesheet" href="css/colpick.css">
     <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/jquery.selectbox.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="icon" type="image/png" href="http://www.portotheme.com/html/venedor/green/images/icons/icon.png">
@@ -281,8 +282,11 @@
                                 </div>
                                 <ul class="menu clearfix">
                                     <li><a href="{{url('/')}}">Home</a></li>
-                                    <li><a href="{{url('admin')}}" style="color:green">Admin</a></li>
-                                    <li><a href="{{url('add')}}">Add Product</a></li>
+                                    <li><a class="active" href="{{url('admin')}}">Admin</a></li>
+                                    <li><a href="{{url('products')}}" style="color:green">Products</a></li>
+                                    <li><a href="{{url('admin/blog')}}">Blog</a></li>
+                                    <li><a href="{{url('signUp')}}">Sign Ups</a></li>
+
                                 </ul>
                             </nav>
                             <div id="quick-access">
@@ -299,145 +303,67 @@
         </div>
     </header>
     <section id="content">
+        <div id="breadcrumb-container">
+            <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="{{url('admin')}}">Admin</a></li>
+                    <li><a href="{{url('products')}}">Products</a></li>
+                    <li class="active">Add Product</li>
+                </ul>
+            </div>
+        </div>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-9 col-sm-8 col-xs-12 main-content">
-                            <div class="category-toolbar clearfix">
-                            </div>
-                            <div class="md-margin"></div>
-                            <div class="category-item-container">
-                                <head>
-                                    <title>Bootsrap Image Gallery</title>
-                                    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-                                    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-                                    <link rel="stylesheet" type="text/css" href="style.css">
-                                    <link rel="shortcut icon" href="favicon.ico"/>
-                                </head>
-                                <body>
-                                @include('flash-message')
-                                <!-- navbar start -->
-                                <!-- navbar end -->
-
-                                <!-- content start -->
-                                <div class="container">
-                                    <div class="row flex">
-                                        @foreach($contents as $content)
-                                        <div class="col-lg-4 col-sm-6">
-                                            <div class="thumbnail">
-                                                <img src="{{asset('uploads/product/'.$content->image_one)}}">
-                                                <h4>{{$content->product_name}}</h4>
-                                            </div>
-                                            <a href="{{url('detail',['id'=>$content->id,'name'=>$content->product_name,'category'=>str_slug($content->product_desc)])}}"><button class="btn btn-primary">View</button></a>
-                                            <a href="{{url('edit',$content->id)}}"><button class="btn btn-info">Edit</button></a>
-                                            <button class="btn btn-danger">Delete</button>
-                                        </div>
-                                        @endforeach
-
+                    <div class="xs-margin"></div>
+                    <form action="{{url('store')}}" id="register-form" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <fieldset><h2 class="sub-title">PRODUCT DETAILS</h2>
+                                    <div class="input-group"><span class="input-group-addon"><span class="input-text">Placement</span></span>
+                                        <div class="large-selectbox clearfix"><select id="country" name="placement" class="selectbox">
+                                                <option value="">Select Placement</option>
+                                                <option value="one">One</option>
+                                                <option value="two">Two</option>
+                                                <option value="three">Three</option>
+                                                <option value="four">Four</option>
+                                            </select></div>
+                                    </div>
+                                    <div class="input-group"><span class="input-group-addon"><span class="input-text">Product Name</span></span>
+                                        <input type="text" required class="form-control input-lg" placeholder="Product Name" name="product_name">
+                                    </div>
+                                    <div class="input-group"><span class="input-group-addon"><span class="input-text">Product Desc</span></span>
+                                        <input type="text" required class="form-control input-lg" placeholder="Product Desc" name="product_desc">
+                                    </div>
+                                    <div class="input-group"><span class="input-group-addon"><span class="input-text">Amazon Link</span></span>
+                                        <input type="text" required class="form-control input-lg" placeholder="Amazon Link" name="amazon_link">
+                                    </div>
+                                    <div class="input-group"><span class="input-group-addon"><span class="input-text">Ebay Link</span></span>
+                                        <input type="text" required class="form-control input-lg" placeholder="Ebay Link" name="ebay_link">
+                                    </div>
+                                    <div class="input-group"><span class="input-group-addon"><span class="input-text">Product Link</span></span>
+                                        <input type="text" required class="form-control input-lg" placeholder="Ebay Link" name="product_link">
+                                    </div>
+                                    <div class="input-group"><span class="input-group-addon"><span class="input-text">Image1</span></span>
+                                        <input type="file" required class="form-control input-lg" name="image_one">
+                                    </div>
+                                    <div class="input-group"><span class="input-group-addon"><span class="input-text">Image2</span></span>
+                                        <input type="file" class="form-control input-lg" name="image_two">
                                     </div>
 
-                                </div>
+                                    <button type="submit" class="btn btn-primary">Save</button>
 
-
-
-                                <script
-                                    src="https://code.jquery.com/jquery-3.2.1.js"
-                                    integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-                                    crossorigin="anonymous"></script>
-
-                                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-                                </body>
+                                </fieldset>
                             </div>
-                            <div class="pagination-container clearfix">
-                                <div class="pull-right">
-                                    <ul class="pagination">
-                                        <li class="active"><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
-                                        <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="pull-right view-count-box hidden-xs"><span class="separator">view:</span>
-                                    <div class="btn-group select-dropdown">
-                                        <button type="button" class="btn select-btn">10</button>
-                                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i
-                                                class="fa fa-angle-down"></i></button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">15</a></li>
-                                            <li><a href="#">30</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
     <footer id="footer">
-        <div id="twitterfeed-container">
-            <div class="container">
-                <div class="row">
-                    <div class="twitterfeed col-md-12">
-                        <div class="twitter-icon"><i class="fa fa-twitter"></i></div>
-                        <div class="row">
-                            <div class="col-md-10 col-sm-10 col-xs-10 col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
-                                <div class="twitter_feed flexslider"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="inner-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3 col-sm-4 col-xs-12 widget"><h3>MY ACCOUNT</h3>
-                        <ul class="links">
-                            <li><a href="#">My account</a></li>
-                            <li><a href="#">Personal information</a></li>
-                            <li><a href="#">Addresses</a></li>
-                            <li><a href="#">Discount</a></li>
-                            <li><a href="#">Order History</a></li>
-                            <li><a href="#">Your Vouchers</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3 col-sm-4 col-xs-12 widget"><h3>INFORMATION</h3>
-                        <ul class="links">
-                            <li><a href="#">New products</a></li>
-                            <li><a href="#">Top sellers</a></li>
-                            <li><a href="#">Specials</a></li>
-                            <li><a href="#">Manufacturers</a></li>
-                            <li><a href="#">Suppliers</a></li>
-                            <li><a href="#">Our stores</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3 col-sm-4 col-xs-12 widget"><h3>MY ACCOUNT</h3>
-                        <ul class="contact-list">
-                            <li><strong>Venedor Ltd</strong></li>
-                            <li>United Kingdom</li>
-                            <li>Greater London</li>
-                            <li>London 02587</li>
-                            <li>Oxford Street 48/188</li>
-                            <li>Working Days: Mon. - Sun.</li>
-                            <li>Working Hours: 9.00AM - 8.00PM</li>
-                        </ul>
-                    </div>
-                    <div class="clearfix visible-sm"></div>
-                    <div class="col-md-3 col-sm-12 col-xs-12 widget"><h3>FACEBOOK LIKE BOX</h3>
-                        <div class="facebook-likebox">
-                            <iframe
-                                src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fenvato&amp;colorscheme=dark&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=false"></iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div id="footer-bottom">
             <div class="container">
                 <div class="row">
@@ -469,14 +395,10 @@
 <script src="js/jquery.hoverIntent.min.js"></script>
 <script src="js/twitter/jquery.tweet.min.js"></script>
 <script src="js/jquery.flexslider-min.js"></script>
+<script src="js/jquery.selectbox.min.js"></script>
 <script src="js/owl.carousel.min.js"></script>
-<script src="js/jflickrfeed.min.js"></script>
-<script src="js/jquery.prettyPhoto.js"></script>
-<script src="js/jquery.nouislider.min.js"></script>
 <script src="js/colpick.js"></script>
-<script src="js/jquery.jscrollpane.min.js"></script>
-<script src="js/jquery.mousewheel.js"></script>
 <script src="js/main.js"></script>
 </body>
-<!-- Mirrored from portotheme.com/html/venedor/green/category.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 26 Jul 2022 06:17:41 GMT -->
+<!-- Mirrored from portotheme.com/html/venedor/green/register-account.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 26 Jul 2022 06:19:07 GMT -->
 </html>

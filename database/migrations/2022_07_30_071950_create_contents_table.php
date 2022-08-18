@@ -20,6 +20,7 @@ class CreateContentsTable extends Migration
             $table->longText('product_desc');
             $table->longText('amazon_link');
             $table->longText('ebay_link');
+            $table->longText('product_link')->nullable();
             $table->mediumText('image_one')->nullable();
             $table->mediumText('image_two')->nullable();
             $table->timestamps();

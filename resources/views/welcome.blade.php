@@ -66,6 +66,18 @@
             </div>
         </div>
     </header>
+    @include('flash-message')
+    <br>
+    <div class="alert alert-success" role="alert" id="success_tic">
+        <strong>Hello <i id="nam"></i>, Sign up Success</strong>
+    </div>
+    <style>
+        .alert {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+    </style>
     <section id="content">
         <div class="container">
             <div class="row">
@@ -84,36 +96,36 @@
                                 <tbody>
                                     <tr>
                                     <td class="item-name-col">
-                                        <figure><a href="#"><img src="{{asset('uploads/product/'.$content->image_one)}}"
+                                        <figure><a href="{{$content->product_link}}"><img src="{{asset('uploads/product/'.$content->image_one)}}"
                                                                  alt="Lowlands Lace Blouse"></a></figure>
-                                        <header class="item-name"><a href="#">{{$content->product_name}}</a></header>
+                                        <header class="item-name"><a href="{{$content->product_link}}">{{$content->product_name}}</a></header>
                                     </td>
                                     <td class="item-code">{{$content->product_desc}}</td>
                                         <td class="item-total-col"><a href="{{$content->amazon_link}}"><button class="btn btn-warning">AMAZON PRICE</button></a> <hr><a href="{{$content->ebay_link}}"><button class="btn btn-danger">EBAY PRICE</button></a> </td>
                                 </tr>
                                     <tr>
                                         <td class="item-name-col">
-                                            <figure><a href="#"><img src="{{asset('uploads/product/'.$two->image_one)}}"
+                                            <figure><a href="{{$two->product_link}}"><img src="{{asset('uploads/product/'.$two->image_one)}}"
                                                                      alt="Lowlands Lace Blouse"></a></figure>
-                                            <header class="item-name"><a href="#">{{$two->product_name}}</a></header>
+                                            <header class="item-name"><a href="{{$two->product_link}}">{{$two->product_name}}</a></header>
                                         </td>
                                         <td class="item-code">{{$two->product_desc}}</td>
                                         <td class="item-total-col"><a href="{{$two->amazon_link}}"><button class="btn btn-warning">AMAZON PRICE</button></a> <hr><a href="{{$content->ebay_link}}"><button class="btn btn-danger">EBAY PRICE</button></a> </td>
                                     </tr>
                                     <tr>
                                         <td class="item-name-col">
-                                            <figure><a href="#"><img src="{{asset('uploads/product/'.$three->image_one)}}"
+                                            <figure><a href="{{$three->product_link}}"><img src="{{asset('uploads/product/'.$three->image_one)}}"
                                                                      alt="Lowlands Lace Blouse"></a></figure>
-                                            <header class="item-name"><a href="#">{{$three->product_name}}</a></header>
+                                            <header class="item-name"><a href="{{$three->product_link}}">{{$three->product_name}}</a></header>
                                         </td>
                                         <td class="item-code">{{$three->product_desc}}</td>
                                         <td class="item-total-col"><a href="{{$three->amazon_link}}"><button class="btn btn-warning">AMAZON PRICE</button></a> <hr><a href="{{$content->ebay_link}}"><button class="btn btn-danger">EBAY PRICE</button></a> </td>
                                     </tr>
                                     <tr>
                                         <td class="item-name-col">
-                                            <figure><a href="#"><img src="{{asset('uploads/product/'.$four->image_one)}}"
+                                            <figure><a href="{{$four->product_link}}"><img src="{{asset('uploads/product/'.$four->image_one)}}"
                                                                      alt="Lowlands Lace Blouse"></a></figure>
-                                            <header class="item-name"><a href="#">{{$four->product_name}}</a></header>
+                                            <header class="item-name"><a href="{{$four->product_link}}">{{$four->product_name}}</a></header>
                                         </td>
                                         <td class="item-code">{{$four->product_desc}}</td>
                                         <td class="item-total-col"><a href="{{$four->amazon_link}}"><button class="btn btn-warning">AMAZON PRICE</button></a> <hr><a href="{{$content->ebay_link}}"><button class="btn btn-danger">EBAY PRICE</button></a> </td>
@@ -151,6 +163,36 @@
         </div>
     </footer>
 </div>
+<!-- basic modal -->
+<!-- Modal Login Form-->
+<div class="modal fade" id="modal-login-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel1">SIGN UP</h4>
+                </div><!-- End .modal-header -->
+                <div class="modal-body">
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="input-icon input-icon-password"></span><span class="input-text">Name&#42;</span></span>
+                        <input type="text" required class="form-control input-lg" id="name" placeholder="Enter Name" aria-required="">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="input-icon input-icon-email"></span><span class="input-text">Email&#42;</span></span>
+                        <input type="email" required class="form-control input-lg" id="email" placeholder="Your Email" aria-required="">
+                    </div><!-- End .input-group -->
+                   <!-- End .input-group -->
+
+
+
+                </div><!-- End .modal-body -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-custom" data-dismiss="modal">CLOSE</button>
+                    <button class="btn btn-custom-2" id="contactForm">SIGN UP</button>
+                </div><!-- End .modal-footer -->
+            </div><!-- End .modal-content -->
+        </div><!-- End .modal-dialog -->
+</div><!-- End .modal -->
 <a href="#" id="scroll-top" title="Scroll to Top"><i class="fa fa-angle-up"></i></a>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/smoothscroll.js"></script>
@@ -167,5 +209,33 @@
 <script src="js/colpick.js"></script>
 <script src="js/main.js"></script>
 </body>
+<script>
+    $(document).ready(function () {
+        $('#success_tic').hide();
+    });
+    $(window).on('load', function() {
+        $('#modal-login-form').modal('show');
+    });
+    $('#contactForm').on('click',function () {
+        var name = $('#name').val();
+        var email = $('#email').val();
+        $.ajax({
+            type:"get",
+            url:"{{url('contact')}}",
+            data:{'name':name,'email':email},
+            success:function (data) {
+                $('#modal-login-form').modal('hide');
+                $('#success_tic').show();
+                $('#nam').text(name);
+            },
+            error:function (error) {
+                console.log(error)
+                alert('error')
+
+            }
+
+        });
+    });
+</script>
 <!-- Mirrored from portotheme.com/html/venedor/green/cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 26 Jul 2022 06:17:17 GMT -->
 </html>

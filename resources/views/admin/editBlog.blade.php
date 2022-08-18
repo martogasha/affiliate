@@ -2,10 +2,10 @@
 <html class="ie8"><![endif]--><!--[if IE 9]>
 <html class="ie9"><![endif]--><!--[if !IE]><!-->
 <html><!--<![endif]-->
-<!-- Mirrored from portotheme.com/html/venedor/green/single-portfolio-gallery.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 26 Jul 2022 06:21:13 GMT -->
+<!-- Mirrored from portotheme.com/html/venedor/green/register-account.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 26 Jul 2022 06:19:07 GMT -->
 <head>
     <meta charset="utf-8">
-    <title>Venedor - Responsive eCommerce Template</title>
+    <title>Edit Blog - Affiliate Website</title>
     <meta name="description" content="Responsive modern ecommerce Html5 Template">
     <!--[if IE]>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{asset('css/prettyPhoto.css')}}">
     <link rel="stylesheet" href="{{asset('css/colpick.css')}}">
     <link rel="stylesheet" href="{{asset('css/owl.carousel.css')}}">
+    <link rel="stylesheet" href="{{asset('css/jquery.selectbox.css')}}">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
     <link rel="icon" type="image/png" href="http://www.portotheme.com/html/venedor/green/images/icons/icon.png">
@@ -281,11 +282,14 @@
                                 </div>
                                 <ul class="menu clearfix">
                                     <li><a href="{{url('/')}}">Home</a></li>
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="{{url('blog')}}" style="color:green">Blog</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
+                                    <li><a class="active" href="{{url('admin')}}">Admin</a></li>
+                                    <li><a href="{{url('products')}}">Products</a></li>
+                                    <li><a href="{{url('admin/blog')}}" style="color:green">Blog</a></li>
+                                    <li><a href="{{url('signUp')}}">Sign Ups</a></li>
+
                                 </ul>
-                            </nav>                            <div id="quick-access">
+                            </nav>
+                            <div id="quick-access">
                                 <form class="form-inline quick-search-form" role="form" action="#">
                                     <div class="form-group"><input type="text" class="form-control"
                                                                    placeholder="Search here"></div>
@@ -302,54 +306,82 @@
         <div id="breadcrumb-container">
             <div class="container">
                 <ul class="breadcrumb">
-                    <li><a href="index.html">Home</a></li>
-                    <li class="active">Blog</li>
+                    <li><a href="{{url('admin')}}">Admin</a></li>
+                    <li><a href="{{url('blog')}}">Blog</a></li>
+                    <li class="active">Edit Blog</li>
                 </ul>
             </div>
         </div>
+        @include('flash-message')
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="xs-margin"></div>
-                    <div class="row">
-                        <div class="col-md-9 col-sm-8 col-xs-12 articles-container">
-                            @foreach($blogs as $blog)
-                            <article class="article">
-                                <div class="article-meta-date">{{$blog->created_at->diffForHumans()}}</div>
-                                <figure class="article-media-container">
-                                    <a href="{{url('blogDetail',['id'=>$blog->id,'name'=>str_slug($blog->title)])}}">
-                                    <img src="{{asset('uploads/product/'.$blog->image)}}"
-                                         alt="blog post"></a>
-                                </figure>
-                                <h2><a href="{{url('blogDetail',['id'=>$blog->id,'name'=>str_slug($blog->title)])}}">{{\Illuminate\Support\Str::of($blog->title)->words(10)}}</a></h2>
-                                <div class="article-content-container"><p>{{\Illuminate\Support\Str::of($blog->detail)->words(20)}} <a href="{{url('blogDetail',['id'=>$blog->id,'name'=>str_slug($blog->title)])}}">Read
-                                            More...</a></p></div>
-                            </article>
-                            @endforeach
-                                {{$blogs->links()}}
-                        </div>
-                        <aside class="col-md-3 col-sm-4 col-xs-12 sidebar">
-                            <div class="widget recent-posts"><h3>Recent Posts</h3>
-                                <div class="recent-posts-slider flexslider sidebarslider">
-                                    <ul class="recent-posts-list clearfix">
-                                        @foreach($recents as $recent)
-                                            <li><a href="{{url('blogDetail',['id'=>$recent->id,'name'=>str_slug($recent->title)])}}">
-                                                    <figure class="recent-posts-media-container"><img
-                                                            src="{{asset('uploads/product/'.$recent->image)}}" class="img-responsive"
-                                                            alt="lats post"></figure>
-                                                </a><h4><a href="{{url('blogDetail',['id'=>$recent->id,'name'=>str_slug($recent->title)])}}">{{\Illuminate\Support\Str::of($recent->title)->words(7)}}</a></h4>
-                                                <p>{{\Illuminate\Support\Str::of($recent->detail)->words(7)}}</p>
-                                                <div class="recent-posts-meta-container clearfix">
-                                                    <div class="pull-left"><a href="{{url('blogDetail',['id'=>$recent->id,'name'=>str_slug($recent->title)])}}">Read More...</a></div>
-                                                    <div class="pull-right">{{$recent->created_at->diffForHumans()}}</div>
-                                                </div>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </div>
+                    <form action="{{url('eBlog')}}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" value="{{$edit->id}}" name="id">
+                        <fieldset><h2 class="sub-title">EDIT BLOG</h2>
+
+                            <div class="modal-body">
+                            <div class="form-group">
+                                <input type="file" name="image">
                             </div>
-                        </aside>
-                    </div>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Title:</label>
+                                <input type="text" class="form-control" name="title" value="{{$edit->title}}" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">Detail:</label>
+                                <input class="form-control" value="{{$edit->detail}}" name="detail" id="message-text" required></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Link Name:</label>
+                                <input type="text" class="form-control" value="{{$edit->linkName}}" name="linkName" id="recipient-name">
+                            </div>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Link:</label>
+                                <input type="text" class="form-control" value="{{$edit->link}}" name="link" id="recipient-name">
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">Quote:</label>
+                                <input class="form-control" value="{{$edit->quote}}" name="quote" id="message-text"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Quote Author:</label>
+                                <input type="text" class="form-control" value="{{$edit->quoteAuthor}}" name="quoteAuthor" id="recipient-name">
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">Detail One:</label>
+                                <input class="form-control" value="{{$edit->detailOne}}" name="detailOne" id="message-text" required></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Link Name One:</label>
+                                <input type="text" class="form-control" value="{{$edit->linkNameOne}}" name="linkNameOne" id="recipient-name">
+                            </div>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Link One:</label>
+                                <input type="text" class="form-control" value="{{$edit->linkOne}}" name="linkOne" id="recipient-name">
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">Detail Two:</label>
+                                <input class="form-control" value="{{$edit->detailTwo}}" name="detailTwo" id="message-text"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Link Name Two:</label>
+                                <input type="text" class="form-control" value="{{$edit->linkNameTwo}}" name="linkNameTwo" id="recipient-name">
+                            </div>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Link Two:</label>
+                                <input type="text" class="form-control" value="{{$edit->linkTwo}}" name="linkTwo" id="recipient-name">
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">Detail Three:</label>
+                                <input class="form-control" value="{{$edit->detailThree}}" name="detailThree" id="message-text"></input>
+                            </div>
+                                <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                        </fieldset>
+
+                    </form>
                 </div>
             </div>
         </div>
@@ -382,16 +414,14 @@
 <script src="js/smoothscroll.js"></script>
 <script src="js/jquery.debouncedresize.js"></script>
 <script src="js/retina.min.js"></script>
-<script src="js/jquery.fitvids.js"></script>
 <script src="js/jquery.placeholder.js"></script>
 <script src="js/jquery.hoverIntent.min.js"></script>
 <script src="js/twitter/jquery.tweet.min.js"></script>
 <script src="js/jquery.flexslider-min.js"></script>
+<script src="js/jquery.selectbox.min.js"></script>
 <script src="js/owl.carousel.min.js"></script>
-<script src="js/jflickrfeed.min.js"></script>
-<script src="js/jquery.prettyPhoto.js"></script>
 <script src="js/colpick.js"></script>
 <script src="js/main.js"></script>
 </body>
-<!-- Mirrored from portotheme.com/html/venedor/green/blog.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 26 Jul 2022 06:18:46 GMT -->
+<!-- Mirrored from portotheme.com/html/venedor/green/register-account.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 26 Jul 2022 06:19:07 GMT -->
 </html>

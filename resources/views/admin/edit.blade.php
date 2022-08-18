@@ -126,7 +126,10 @@
                                 </div>
                                 <ul class="menu clearfix">
                                     <li><a class="active" href="{{url('admin')}}">Admin</a></li>
-                                    <li><a href="{{url('add')}}">Add Content</a></li>
+                                    <li><a href="{{url('products')}}" style="color:green"   >Products</a></li>
+                                    <li><a href="{{url('admin/blog')}}">Blog</a></li>
+                                    <li><a href="{{url('signUp')}}">Sign Ups</a></li>
+
                                 </ul>
                             </nav>
                             <div id="quick-access">
@@ -160,7 +163,7 @@
                         <input type="hidden" value="{{$edit->id}}" name="id">
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                <fieldset><h2 class="sub-title">CONTENT DETAILS</h2>
+                                <fieldset><h2 class="sub-title">EDIT PRODUCT</h2>
                                     <div class="input-group"><span class="input-group-addon"><span class="input-text">Placement</span></span>
                                         <div class="large-selectbox clearfix"><select id="country" name="placement" class="selectbox">
                                                 @if($edit->placement==null)
@@ -201,6 +204,9 @@
                                     </div>
                                     <div class="input-group"><span class="input-group-addon"><span class="input-text">Ebay Link</span></span>
                                         <input type="text" required class="form-control input-lg" value="{{$edit->ebay_link}}" name="ebay_link">
+                                    </div>
+                                    <div class="input-group"><span class="input-group-addon"><span class="input-text">Product Link</span></span>
+                                        <input type="text" required class="form-control input-lg" value="{{$edit->product_link}}" name="product_link">
                                     </div>
                                     <div class="input-group"><span class="input-group-addon"><span class="input-text">Image1</span></span>
                                         <input type="file" class="form-control input-lg" name="image_one">

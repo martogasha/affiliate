@@ -316,11 +316,11 @@
                             <figure>
                                 <div class="flexslider single-portfolio-slider">
                                     <ul class="slides">
-                                        <li><img src="{{asset('uploads/product/'.$detail->image_one)}}" class="img-responsive"
-                                                 alt="Portfolio item 6"></li>
+                                        <li><a href="{{$detail->product_link}}"> <img src="{{asset('uploads/product/'.$detail->image_one)}}" class="img-responsive"
+                                                 alt="Portfolio item 6"></a></li>
                                         @if($detail->image_two!=null)
-                                        <li><img src="{{asset('uploads/product/'.$detail->image_two)}}" class="img-responsive"
-                                                 alt="Portfolio item 4"></li>
+                                        <li><a href="{{$detail->product_link}}"><img src="{{asset('uploads/product/'.$detail->image_two)}}" class="img-responsive"
+                                                            alt="Portfolio item 4"></a></li>
                                         @endif
                                     </ul>
                                 </div>

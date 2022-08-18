@@ -5,7 +5,7 @@
 <!-- Mirrored from portotheme.com/html/venedor/green/register-account.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 26 Jul 2022 06:19:07 GMT -->
 <head>
     <meta charset="utf-8">
-    <title>Venedor - Responsive eCommerce Template</title>
+    <title>Add Blog - Affiliate Website</title>
     <meta name="description" content="Responsive modern ecommerce Html5 Template">
     <!--[if IE]>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
@@ -283,7 +283,11 @@
                                 <ul class="menu clearfix">
                                     <li><a href="{{url('/')}}">Home</a></li>
                                     <li><a class="active" href="{{url('admin')}}">Admin</a></li>
-                                    <li><a href="{{url('add')}}" style="color:green">Add Product</a></li>
+                                    <li><a href="{{url('products')}}">Products</a></li>
+                                    <li><a href="{{url('admin/blog')}}">Blog</a></li>
+                                    <li><a href="{{url('admin/blog')}}" style="color:green">Add Blog</a></li>
+                                    <li><a href="{{url('signUp')}}">Sign Ups</a></li>
+
                                 </ul>
                             </nav>
                             <div id="quick-access">
@@ -304,53 +308,79 @@
             <div class="container">
                 <ul class="breadcrumb">
                     <li><a href="{{url('admin')}}">Admin</a></li>
-                    <li class="active">Add Product</li>
+                    <li><a href="{{url('blog')}}">Blog</a></li>
+                    <li class="active">Add Blog</li>
                 </ul>
             </div>
         </div>
+        @include('flash-message')
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="xs-margin"></div>
-                    <form action="{{url('store')}}" id="register-form" method="post" enctype="multipart/form-data">
+                    <form action="{{url('storeBlog')}}" method="post" enctype="multipart/form-data">
                         @csrf
-                        <div class="row">
-                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                <fieldset><h2 class="sub-title">PRODUCT DETAILS</h2>
-                                    <div class="input-group"><span class="input-group-addon"><span class="input-text">Placement</span></span>
-                                        <div class="large-selectbox clearfix"><select id="country" name="placement" class="selectbox">
-                                                <option value="">Select Placement</option>
-                                                <option value="one">One</option>
-                                                <option value="two">Two</option>
-                                                <option value="three">Three</option>
-                                                <option value="four">Four</option>
-                                            </select></div>
-                                    </div>
-                                    <div class="input-group"><span class="input-group-addon"><span class="input-text">Product Name</span></span>
-                                        <input type="text" required class="form-control input-lg" placeholder="Product Name" name="product_name">
-                                    </div>
-                                    <div class="input-group"><span class="input-group-addon"><span class="input-text">Product Desc</span></span>
-                                        <input type="text" required class="form-control input-lg" placeholder="Product Desc" name="product_desc">
-                                    </div>
-                                    <div class="input-group"><span class="input-group-addon"><span class="input-text">Amazon Link</span></span>
-                                        <input type="text" required class="form-control input-lg" placeholder="Amazon Link" name="amazon_link">
-                                    </div>
-                                    <div class="input-group"><span class="input-group-addon"><span class="input-text">Ebay Link</span></span>
-                                        <input type="text" required class="form-control input-lg" placeholder="Ebay Link" name="ebay_link">
-                                    </div>
-                                    <div class="input-group"><span class="input-group-addon"><span class="input-text">Image1</span></span>
-                                        <input type="file" required class="form-control input-lg" name="image_one">
-                                    </div>
-                                    <div class="input-group"><span class="input-group-addon"><span class="input-text">Image2</span></span>
-                                        <input type="file" class="form-control input-lg" name="image_two">
-                                    </div>
+                        <fieldset><h2 class="sub-title">BLOG DETAILS</h2>
 
-                                    <button type="submit" class="btn btn-primary">Save</button>
-
-                                </fieldset>
+                            <div class="modal-body">
+                            <div class="form-group">
+                                <input type="file" name="image">
                             </div>
-
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Title:</label>
+                                <input type="text" class="form-control" name="title" id="recipient-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">Detail:</label>
+                                <textarea class="form-control" name="detail" id="message-text" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Link Name:</label>
+                                <input type="text" class="form-control" name="linkName" id="recipient-name">
+                            </div>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Link:</label>
+                                <input type="text" class="form-control" name="link" id="recipient-name">
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">Quote:</label>
+                                <textarea class="form-control" name="quote" id="message-text"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Quote Author:</label>
+                                <input type="text" class="form-control" name="quoteAuthor" id="recipient-name">
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">Detail One:</label>
+                                <textarea class="form-control" name="detailOne" id="message-text" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Link Name One:</label>
+                                <input type="text" class="form-control" name="linkNameOne" id="recipient-name">
+                            </div>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Link One:</label>
+                                <input type="text" class="form-control" name="linkOne" id="recipient-name">
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">Detail Two:</label>
+                                <textarea class="form-control" name="detailTwo" id="message-text"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Link Name Two:</label>
+                                <input type="text" class="form-control" name="linkNameTwo" id="recipient-name">
+                            </div>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Link Two:</label>
+                                <input type="text" class="form-control" name="linkTwo" id="recipient-name">
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">Detail Three:</label>
+                                <textarea class="form-control" name="detailThree" id="message-text"></textarea>
+                            </div>
+                                <button type="submit" class="btn btn-primary">Save</button>
                         </div>
+                        </fieldset>
+
                     </form>
                 </div>
             </div>
