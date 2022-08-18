@@ -343,7 +343,7 @@
                                         <input type="text" required class="form-control input-lg" placeholder="Ebay Link" name="ebay_link">
                                     </div>
                                     <div class="input-group"><span class="input-group-addon"><span class="input-text">Product Link</span></span>
-                                        <input type="text" required class="form-control input-lg" placeholder="Ebay Link" name="product_link">
+                                        <input type="text" required class="form-control input-lg" placeholder="Product Link" name="product_link">
                                     </div>
                                     <div class="input-group"><span class="input-group-addon"><span class="input-text">Image1</span></span>
                                         <input type="file" required class="form-control input-lg" name="image_one">

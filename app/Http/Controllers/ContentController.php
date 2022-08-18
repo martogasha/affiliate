@@ -60,7 +60,7 @@ class ContentController extends Controller
             $pictures->image_two = $filename;
         }
         $pictures->save();
-        return redirect(url('admin'))->with('success','Content Posted Success');
+        return redirect(url('products'))->with('success','Content Posted Success');
     }
     public function edit($id){
         $edit = Content::find($id);

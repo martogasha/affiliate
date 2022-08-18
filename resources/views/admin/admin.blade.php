@@ -326,23 +326,101 @@
 
                                 <!-- content start -->
                                 <div class="container">
-                                    <div class="row flex">
-                                        @foreach($contents as $content)
-                                        <div class="col-lg-4 col-sm-6">
-                                            <div class="thumbnail">
-                                                <img src="{{asset('uploads/product/'.$content->image_one)}}">
-                                                <h4>{{$content->product_name}}</h4>
+                                    <div class="container py-5">
+                                        <div class="row">
+                                            <div class="col-lg-12 p-5">
+                                                <h1> <i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</h1>
+                                                <hr />
                                             </div>
-                                            <a href="{{url('detail',['id'=>$content->id,'name'=>$content->product_name,'category'=>str_slug($content->product_desc)])}}"><button class="btn btn-primary">View</button></a>
-                                            <a href="{{url('edit',$content->id)}}"><button class="btn btn-info">Edit</button></a>
-                                            <button class="btn btn-danger">Delete</button>
                                         </div>
-                                        @endforeach
+                                        <div class="row">
+                                            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 p-2">
+                                                <a class="text-decoration-none" href="{{url('products')}}">
+                                                    <div class="card p-3 shadow bg-purple text-center border-0">
+                                                        <div class="card-body">
+                                                            <p class="card-title lead">Products</p>
+                                                            <hr />
+                                                            <p class="card-title lead">{{\App\Models\Content::count()}}</p>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
 
+                                            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 p-2">
+                                                <a class="text-decoration-none" href="{{url('admin/blog')}}">
+                                                    <div class="card p-3 shadow bg-purple text-center border-0">
+                                                        <div class="card-body">
+                                                            <p class="card-title lead">Blogs</p>
+                                                            <hr />
+                                                            <p class="card-title lead">{{\App\Models\Blog::count()}}</p>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+
+                                        </div>
                                     </div>
 
-                                </div>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="modelHELP" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title"><i class="fa fa-question-circle-o" aria-hidden="true"></i> Technical Support
+                                                        24/7</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body p-5">
+                                                    <p>
+                                                        <small>(Mon - Sat / 10AM - 6PM)</small>
+                                                    </p>
+                                                    <hr />
+                                                    <p> <i class="fa fa-envelope mr-3" aria-hidden="true"></i> </p>
+                                                    <p><i class="fa fa-volume-control-phone mr-3" aria-hidden="true"></i> +91-123654789 </p>
 
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <style>
+                                        body {
+                                            font-family: "Lato", sans-serif;
+                                        }
+
+                                        :root {
+                                            --primary: #94618e;
+                                        }
+
+                                        .justify {
+                                            text-align: justify;
+                                        }
+
+                                        .text-purple {
+                                            color: var(--primary);
+                                        }
+
+                                        .bg-purple {
+                                            background-color: var(--primary);
+                                            color: white;
+                                        }
+
+                                    </style>
+                                </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
                                 <script
@@ -353,29 +431,6 @@
                                 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
                                 </body>
-                            </div>
-                            <div class="pagination-container clearfix">
-                                <div class="pull-right">
-                                    <ul class="pagination">
-                                        <li class="active"><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
-                                        <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="pull-right view-count-box hidden-xs"><span class="separator">view:</span>
-                                    <div class="btn-group select-dropdown">
-                                        <button type="button" class="btn select-btn">10</button>
-                                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i
-                                                class="fa fa-angle-down"></i></button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">15</a></li>
-                                            <li><a href="#">30</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
