@@ -3,6 +3,7 @@
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\DetailController;
+use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +30,7 @@ Route::get('signUp', [ContentController::class, 'signUp']);
 Route::get('edit/{id}', [ContentController::class, 'edit']);
 Route::get('editBlog/{id}', [ContentController::class, 'editBlog']);
 Route::get('admin/blog', [BlogController::class, 'adminBlog']);
+Route::get('sendMail', [MailController::class, 'sendMail']);
 
 //user routes
 Route::get('/', [ContentController::class, 'index']);
