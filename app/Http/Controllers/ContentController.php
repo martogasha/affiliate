@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Blog;
+use App\Mail\SignUp;
 use App\Models\Contact;
 use App\Models\Content;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContentController extends Controller
 {
@@ -146,6 +148,9 @@ class ContentController extends Controller
            'name'=>$request->input('name'),
            'email'=>$request->input('email'),
         ]);
+        $name =$request->input('name');
+        $email =$request->input('email');
+        Mail::to($email)->send(new SignUp($name));
         return response($output);
     }
     public function signUp(){
