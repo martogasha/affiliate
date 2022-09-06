@@ -29,6 +29,6 @@ class SignUp extends Mailable
      */
     public function build()
     {
-        return $this->from('maxmillankibe@gmail.com')->markdown('signUpView');
+        return $this->from('kibemax2000@gmail.com')->markdown('signUpView');
     }
 }

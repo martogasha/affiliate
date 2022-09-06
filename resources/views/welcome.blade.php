@@ -71,6 +71,9 @@
     <div class="alert alert-success" role="alert" id="success_tic">
         <strong>Hello <i id="nam"></i>, Sign up Success</strong>
     </div>
+    <div class="alert alert-danger" role="alert" id="error_tic">
+        <strong>Error <i id="nam"></i>, Check your internet connection</strong>
+    </div>
     <style>
         .alert {
             width: 80%;
@@ -601,6 +604,7 @@
 <script>
     $(document).ready(function () {
         $('#success_tic').hide();
+        $('#error_tic').hide();
     });
     $(window).on('load', function() {
         var is_already_show = sessionStorage.getItem('alreadyShow');
@@ -628,7 +632,8 @@
             },
             error:function (error) {
                 console.log(error)
-                alert('error')
+                $('#loader').modal('hide');
+                $('#error_tic').show();
 
             }
 
